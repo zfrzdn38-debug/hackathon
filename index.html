@@ -1,0 +1,886 @@
+"use client"
+
+import type React from "react"
+import { Phone, MapPin } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { ArrowRight, Recycle, Leaf, Users, Target, Globe, Factory, Shirt, Mail, Award, Play, Star } from "lucide-react"
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-background">
+      {/* Navigation */}
+      <nav className="border-b border-border/40 bg-background/80 backdrop-blur-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-2">
+              <div
+                className="w-8 h-8 bg-primary rounded-full flex items-center justify-center neon-glow"
+                style={{ color: "var(--neon-green)" }}
+              >
+                <Recycle className="w-4 h-4 text-primary-foreground" />
+              </div>
+              <span className="font-semibold text-xl neon-text-glow" style={{ color: "var(--neon-green)" }}>
+                ReThread
+              </span>
+            </div>
+            <div className="hidden md:flex items-center gap-8">
+              <a
+                href="#problem"
+                className="text-muted-foreground hover:text-foreground transition-colors hover:neon-text-glow"
+                style={{ "--hover-color": "var(--neon-cyan)" } as React.CSSProperties}
+              >
+                Sorun
+              </a>
+              <a
+                href="#solution"
+                className="text-muted-foreground hover:text-foreground transition-colors hover:neon-text-glow"
+                style={{ "--hover-color": "var(--neon-cyan)" } as React.CSSProperties}
+              >
+                Çözüm
+              </a>
+              <a
+                href="#impact"
+                className="text-muted-foreground hover:text-foreground transition-colors hover:neon-text-glow"
+                style={{ "--hover-color": "var(--neon-cyan)" } as React.CSSProperties}
+              >
+                Etki
+              </a>
+              <a
+                href="#future"
+                className="text-muted-foreground hover:text-foreground transition-colors hover:neon-text-glow"
+                style={{ "--hover-color": "var(--neon-cyan)" } as React.CSSProperties}
+              >
+                Gelecek
+              </a>
+              <a
+                href="#contact"
+                className="text-muted-foreground hover:text-foreground transition-colors hover:neon-text-glow"
+                style={{ "--hover-color": "var(--neon-cyan)" } as React.CSSProperties}
+              >
+                İletişim
+              </a>
+            </div>
+            <Button
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              className="neon-glow"
+              style={{ backgroundColor: "var(--neon-magenta)", borderColor: "var(--neon-magenta)" }}
+            >
+              Katılın
+            </Button>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5"
+          style={{
+            background:
+              "linear-gradient(135deg, oklch(0.65 0.25 145 / 0.1), var(--background), oklch(0.75 0.28 300 / 0.1))",
+          }}
+        />
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <Badge
+                variant="secondary"
+                className="w-fit neon-border"
+                style={{ borderColor: "var(--neon-green)", color: "var(--neon-green)" }}
+              >
+                <Leaf className="w-3 h-3 mr-1" />
+                Sürdürülebilir İnovasyon
+              </Badge>
+              <div className="space-y-6">
+                <h1 className="text-4xl lg:text-6xl font-bold text-balance leading-tight">
+                  Tekstil atıklarını{" "}
+                  <span className="neon-text-glow" style={{ color: "var(--neon-green)" }}>
+                    yarının kumaşlarına
+                  </span>{" "}
+                  dönüştürün
+                </h1>
+                <p className="text-xl text-muted-foreground text-pretty leading-relaxed">
+                  Atık tekstilleri yenilikçi çevre dostu süreçlerle yüksek kaliteli, sürdürülebilir kumaşlara
+                  dönüştürerek moda endüstrisinde devrim yaratıyoruz. Çevresel etkiyi{" "}
+                  <span className="font-bold neon-text-glow" style={{ color: "var(--neon-yellow)" }}>
+                    %85'e kadar
+                  </span>{" "}
+                  azaltıyoruz.
+                </p>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  size="lg"
+                  className="group neon-glow"
+                  style={{ backgroundColor: "var(--neon-green)", borderColor: "var(--neon-green)" }}
+                  onClick={() => document.getElementById("solution")?.scrollIntoView({ behavior: "smooth" })}
+                >
+                  Sürecimizi Öğrenin
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="group bg-transparent neon-border hover:neon-glow"
+                  style={{ borderColor: "var(--neon-cyan)", color: "var(--neon-cyan)" }}
+                  onClick={() => window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank")}
+                >
+                  <Play className="w-4 h-4 mr-2" />
+                  Demo İzleyin
+                </Button>
+              </div>
+              <div className="flex items-center gap-6 pt-4">
+                <div className="flex items-center gap-2">
+                  <Award className="w-5 h-5" style={{ color: "var(--neon-yellow)" }} />
+                  <span className="text-sm text-muted-foreground">B-Corp Sertifikalı</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Star className="w-5 h-5" style={{ color: "var(--neon-yellow)" }} />
+                  <span className="text-sm text-muted-foreground">ISO 14001 Uyumlu</span>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div
+                className="aspect-square rounded-2xl p-8 flex items-center justify-center neon-glow"
+                style={{
+                  background: "linear-gradient(135deg, oklch(0.65 0.25 145 / 0.2), oklch(0.75 0.28 300 / 0.2))",
+                }}
+              >
+                <img
+                  src="/textile-recycling-process-with-fabric-transformati.jpg"
+                  alt="Tekstil geri dönüşüm süreci görselleştirmesi"
+                  className="w-full h-full object-cover rounded-xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 text-primary-foreground neon-glow" style={{ backgroundColor: "var(--neon-green)" }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold mb-2 neon-text-glow">Rakamlarla Etkimiz</h2>
+            <p className="opacity-90">Sürdürülebilir tekstil geri dönüşüm operasyonlarımızdan gerçek sonuçlar</p>
+          </div>
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            <div className="space-y-2">
+              <div className="text-3xl font-bold neon-text-glow">50K+</div>
+              <div className="text-sm opacity-90">Ton Geri Dönüştürüldü</div>
+              <div className="text-xs opacity-75">2020'den beri</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold neon-text-glow">200+</div>
+              <div className="text-sm opacity-90">Partner Marka</div>
+              <div className="text-xs opacity-75">Küresel olarak</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold neon-text-glow">%85</div>
+              <div className="text-sm opacity-90">Atık Azaltma</div>
+              <div className="text-xs opacity-75">Proje başına ortalama</div>
+            </div>
+            <div className="space-y-2">
+              <div className="text-3xl font-bold neon-text-glow">1M+</div>
+              <div className="text-sm opacity-90">CO2 Tasarrufu (kg)</div>
+              <div className="text-xs opacity-75">Sadece bu yıl</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-accent/5">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center space-y-6 mb-16">
+            <Badge
+              variant="default"
+              className="w-fit mx-auto neon-border"
+              style={{ borderColor: "var(--neon-cyan)", color: "var(--neon-cyan)" }}
+            >
+              <Factory className="w-3 h-3 mr-1" />
+              Teknolojimiz
+            </Badge>
+            <h2 className="text-3xl lg:text-5xl font-bold text-balance">Gelişmiş geri dönüşüm süreci</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+              Özel teknolojimiz, tekstil atıklarını moleküler düzeyde parçalayarak bakir malzeme kalitesine eşdeğer yeni
+              lifler oluşturmak için mekanik ve kimyasal süreçleri birleştirir.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            <Card className="p-8 text-center card-hover neon-border" style={{ borderColor: "var(--neon-green)" }}>
+              <CardContent className="space-y-6">
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto neon-glow"
+                  style={{ backgroundColor: "var(--neon-green)", color: "white" }}
+                >
+                  <span className="text-2xl font-bold">1</span>
+                </div>
+                <h3 className="text-xl font-semibold">Sıralama ve Hazırlık</h3>
+                <p className="text-muted-foreground">
+                  AI destekli sıralama teknolojisi tekstilleri lif türü, renk ve duruma göre ayırır. Malzemeler çevre
+                  dostu deterjanlar kullanılarak temizlenir ve işleme hazırlanır.
+                </p>
+                <div className="text-sm font-medium neon-text-glow" style={{ color: "var(--neon-green)" }}>
+                  %99.5 doğruluk oranı
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="p-8 text-center card-hover neon-border" style={{ borderColor: "var(--neon-cyan)" }}>
+              <CardContent className="space-y-6">
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto neon-glow"
+                  style={{ backgroundColor: "var(--neon-cyan)", color: "white" }}
+                >
+                  <span className="text-2xl font-bold">2</span>
+                </div>
+                <h3 className="text-xl font-semibold">Moleküler Parçalama</h3>
+                <p className="text-muted-foreground">
+                  Patentli enzimatik sürecimiz, lif bütünlüğünü korurken boya ve kirleticileri uzaklaştırarak lifleri
+                  sert kimyasallar olmadan moleküler düzeyde parçalar.
+                </p>
+                <div className="text-sm font-medium neon-text-glow" style={{ color: "var(--neon-cyan)" }}>
+                  Sıfır toksik atık
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="p-8 text-center card-hover neon-border" style={{ borderColor: "var(--neon-magenta)" }}>
+              <CardContent className="space-y-6">
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto neon-glow"
+                  style={{ backgroundColor: "var(--neon-magenta)", color: "white" }}
+                >
+                  <span className="text-2xl font-bold">3</span>
+                </div>
+                <h3 className="text-xl font-semibold">Lif Yeniden Yapılandırma</h3>
+                <p className="text-muted-foreground">
+                  Saflaştırılmış malzemeler, bakir malzemelere eşit veya onları aşan özelliklerle tekstil üretimi için
+                  hazır yeni yüksek kaliteli lifler ve ipliklere dönüştürülür.
+                </p>
+                <div className="text-sm font-medium neon-text-glow" style={{ color: "var(--neon-magenta)" }}>
+                  Premium kalite çıktı
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Section */}
+      <section id="problem" className="py-24 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center space-y-6 mb-16">
+            <Badge variant="destructive" className="w-fit mx-auto">
+              <Globe className="w-3 h-3 mr-1" />
+              Küresel Kriz
+            </Badge>
+            <h2 className="text-3xl lg:text-5xl font-bold text-balance">Tekstil atık acil durumu</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+              Moda endüstrisi petrol dışında diğer tüm endüstrilerden daha fazla atık üretir. Her saniye bir kamyon
+              dolusu tekstil yakılır veya çöplüklere gönderilir. Bu kriz acil eylem gerektiriyor.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="text-center p-8">
+              <CardContent className="space-y-4">
+                <div className="w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mx-auto">
+                  <Factory className="w-8 h-8 text-destructive" />
+                </div>
+                <h3 className="text-2xl font-bold">92 Milyon Ton</h3>
+                <p className="text-muted-foreground">Her yıl küresel olarak üretilen tekstil atığı</p>
+                <div className="text-sm text-destructive font-medium">Saniyede bir çöp kamyonuna eşdeğer</div>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-8">
+              <CardContent className="space-y-4">
+                <div className="w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mx-auto">
+                  <Shirt className="w-8 h-8 text-destructive" />
+                </div>
+                <h3 className="text-2xl font-bold">%1'den Az</h3>
+                <p className="text-muted-foreground">Giysilerin yeni kıyafetlere geri dönüştürülme oranı</p>
+                <div className="text-sm text-destructive font-medium">%99'u çöplüklerde veya yakılarak son buluyor</div>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-8">
+              <CardContent className="space-y-4">
+                <div className="w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mx-auto">
+                  <Globe className="w-8 h-8 text-destructive" />
+                </div>
+                <h3 className="text-2xl font-bold">CO2'nin %10'u</h3>
+                <p className="text-muted-foreground">Moda endüstrisinden gelen küresel karbon emisyonları</p>
+                <div className="text-sm text-destructive font-medium">
+                  Havacılık ve nakliye sektörlerinin toplamından fazla
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Solution Section */}
+      <section id="solution" className="py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-8">
+              <Badge
+                variant="default"
+                className="w-fit neon-border"
+                style={{ borderColor: "var(--neon-green)", color: "var(--neon-green)" }}
+              >
+                <Recycle className="w-3 h-3 mr-1" />
+                Çözümümüz
+              </Badge>
+              <div className="space-y-6">
+                <h2 className="text-3xl lg:text-5xl font-bold text-balance">Atığı mucizeye dönüştürmek</h2>
+                <p className="text-xl text-muted-foreground text-pretty leading-relaxed">
+                  Yenilikçi toplama ve işleme sistemimiz, atık tekstilleri geleneksel üretime göre{" "}
+                  <span className="font-bold neon-text-glow" style={{ color: "var(--neon-cyan)" }}>
+                    %90 daha az su
+                  </span>{" "}
+                  ve{" "}
+                  <span className="font-bold neon-text-glow" style={{ color: "var(--neon-yellow)" }}>
+                    %70 daha az enerji
+                  </span>{" "}
+                  kullanan son teknoloji çevre dostu teknoloji ile premium kaliteli kumaş ve ipliklere dönüştürür.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex gap-4">
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1 neon-glow"
+                    style={{ backgroundColor: "var(--neon-green)", color: "white" }}
+                  >
+                    <span className="font-bold text-sm">1</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Küresel Toplama Ağı</h3>
+                    <p className="text-muted-foreground">
+                      Verimli tekstil toplama ve lojistik için 15 ülkede 200+ perakendeci ile stratejik ortaklıklar ve
+                      doğrudan tüketici programları
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1 neon-glow"
+                    style={{ backgroundColor: "var(--neon-cyan)", color: "white" }}
+                  >
+                    <span className="font-bold text-sm">2</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Gelişmiş İşleme Teknolojisi</h3>
+                    <p className="text-muted-foreground">
+                      Özel enzimatik ve mekanik süreçler, lif gücünü ve kalitesini koruyarak toksik kimyasallar olmadan
+                      lifleri parçalar ve yeniden oluşturur
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex gap-4">
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1 neon-glow"
+                    style={{ backgroundColor: "var(--neon-magenta)", color: "white" }}
+                  >
+                    <span className="font-bold text-sm">3</span>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Premium Kalite Çıktı</h3>
+                    <p className="text-muted-foreground">
+                      Bakir lif standartlarına eşit veya onları aşan, üst düzey moda ve tekstil üretimi için hazır
+                      sertifikalı geri dönüştürülmüş malzemeler
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <Button
+                size="lg"
+                className="group neon-glow"
+                style={{ backgroundColor: "var(--neon-magenta)", borderColor: "var(--neon-magenta)" }}
+                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+              >
+                Ortaklığınızı Başlatın
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
+
+            <div className="relative">
+              <div
+                className="aspect-[4/3] rounded-2xl p-8 flex items-center justify-center neon-glow"
+                style={{
+                  background: "linear-gradient(135deg, oklch(0.65 0.25 145 / 0.1), oklch(0.75 0.28 300 / 0.1))",
+                }}
+              >
+                <img
+                  src="/modern-textile-recycling-facility-with-eco-friendl.jpg"
+                  alt="Tekstil geri dönüşüm tesisi"
+                  className="w-full h-full object-cover rounded-xl"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Section */}
+      <section id="impact" className="py-24 bg-primary/5">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center space-y-6 mb-16">
+            <Badge
+              variant="default"
+              className="w-fit mx-auto neon-border"
+              style={{ borderColor: "var(--neon-green)", color: "var(--neon-green)" }}
+            >
+              <Leaf className="w-3 h-3 mr-1" />
+              Çevresel Etki
+            </Badge>
+            <h2 className="text-3xl lg:text-5xl font-bold text-balance">Bu neden şimdi önemli</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+              Yaklaşımımız moda endüstrisi için sürdürülebilir bir gelecek inşa ederken ölçülebilir çevresel faydalar
+              yaratır. İşlediğimiz her ton tekstil atığı önemli çevresel hasarı önler.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="text-center p-6 card-hover neon-border" style={{ borderColor: "var(--neon-green)" }}>
+              <CardContent className="space-y-4">
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto neon-glow"
+                  style={{ backgroundColor: "var(--neon-green)", color: "white" }}
+                >
+                  <Recycle className="w-6 h-6" />
+                </div>
+                <h3 className="font-semibold">Çöplüğü Azaltır</h3>
+                <p className="text-sm text-muted-foreground">
+                  Yıllık binlerce tonu çöplüklerden uzaklaştırarak toprak ve su kirliliğini önler
+                </p>
+                <div className="text-xs font-medium neon-text-glow" style={{ color: "var(--neon-green)" }}>
+                  50.000+ ton yönlendirildi
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 card-hover neon-border" style={{ borderColor: "var(--neon-cyan)" }}>
+              <CardContent className="space-y-4">
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto neon-glow"
+                  style={{ backgroundColor: "var(--neon-cyan)", color: "white" }}
+                >
+                  <Globe className="w-6 h-6" />
+                </div>
+                <h3 className="font-semibold">Kaynakları Korur</h3>
+                <p className="text-sm text-muted-foreground">
+                  Bakir malzeme üretimine kıyasla üretimde su ve enerji tasarrufu sağlar
+                </p>
+                <div className="text-xs font-medium neon-text-glow" style={{ color: "var(--neon-cyan)" }}>
+                  %90 daha az su kullanımı
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 card-hover neon-border" style={{ borderColor: "var(--neon-yellow)" }}>
+              <CardContent className="space-y-4">
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto neon-glow"
+                  style={{ backgroundColor: "var(--neon-yellow)", color: "black" }}
+                >
+                  <Leaf className="w-6 h-6" />
+                </div>
+                <h3 className="font-semibold">Düşük Emisyon</h3>
+                <p className="text-sm text-muted-foreground">
+                  Verimli geri dönüşüm süreçleri ile karbon ayak izini önemli ölçüde azaltır
+                </p>
+                <div className="text-xs font-medium neon-text-glow" style={{ color: "var(--neon-yellow)" }}>
+                  1M+ kg CO2 tasarrufu
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="text-center p-6 card-hover neon-border" style={{ borderColor: "var(--neon-magenta)" }}>
+              <CardContent className="space-y-4">
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto neon-glow"
+                  style={{ backgroundColor: "var(--neon-magenta)", color: "white" }}
+                >
+                  <Users className="w-6 h-6" />
+                </div>
+                <h3 className="font-semibold">Yeşil İşler</h3>
+                <p className="text-sm text-muted-foreground">
+                  Döngüsel ekonomide sürdürülebilir istihdam fırsatları yaratır
+                </p>
+                <div className="text-xs font-medium neon-text-glow" style={{ color: "var(--neon-magenta)" }}>
+                  500+ iş yaratıldı
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Future Goals Section */}
+      <section id="future" className="py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center space-y-6 mb-16">
+            <Badge variant="secondary" className="w-fit mx-auto">
+              <Target className="w-3 h-3 mr-1" />
+              Gelecek Vizyonu
+            </Badge>
+            <h2 className="text-3xl lg:text-5xl font-bold text-balance">Yarının döngüsel ekonomisini inşa etmek</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-pretty">
+              Yol haritamız geri dönüşümün ötesine geçerek dünyanın moda ve atık hakkındaki düşüncesini dönüştüren
+              kapsamlı sürdürülebilir tekstil ekosistemi yaratmaya uzanır.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            <div className="space-y-8">
+              <Card className="p-6">
+                <CardContent className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Globe className="w-4 h-4 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold">Toplama Programlarını Genişletmek</h3>
+                  </div>
+                  <p className="text-muted-foreground">
+                    2026'ya kadar toplama ağımızı dünya çapında 50 büyük şehre ölçeklendirerek tekstil geri dönüşümünü
+                    100 milyon tüketiciye erişilebilir hale getirmek ve bölgesel işleme merkezleri kurmak.
+                  </p>
+                  <div className="text-sm text-primary font-medium">Hedef: 2026</div>
+                </CardContent>
+              </Card>
+
+              <Card className="p-6">
+                <CardContent className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Users className="w-4 h-4 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold">Moda Markası Ortaklıkları</h3>
+                  </div>
+                  <p className="text-muted-foreground">
+                    Geri dönüştürülmüş malzemeleri ana akım üretime entegre etmek, kapalı döngü tedarik zincirleri ve
+                    sürdürülebilir moda koleksiyonları yaratmak için 500+ önde gelen moda markasıyla işbirliği yapmak.
+                  </p>
+                  <div className="text-sm text-primary font-medium">Hedef: 2025</div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="space-y-8">
+              <Card className="p-6">
+                <CardContent className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Target className="w-4 h-4 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold">Halkı Bilinçlendirme</h3>
+                  </div>
+                  <p className="text-muted-foreground">
+                    Dijital platformlar ve toplum programları aracılığıyla 10 milyon tüketiciye ulaşarak sürdürülebilir
+                    moda seçimleri konusunda bilinç artırmak için küresel eğitim kampanyaları başlatmak.
+                  </p>
+                  <div className="text-sm text-primary font-medium">Devam Eden</div>
+                </CardContent>
+              </Card>
+
+              <Card className="p-6">
+                <CardContent className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                      <Leaf className="w-4 h-4 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold">Biyobozunur İnovasyon</h3>
+                  </div>
+                  <p className="text-muted-foreground">
+                    Döngüsel yaşam döngüsünü tamamlayan, doğal ortamlarda 2-3 yıl içinde güvenle parçalanan yeni nesil
+                    biyobozunur kumaşlar geliştirmek.
+                  </p>
+                  <div className="text-sm text-primary font-medium">Ar-Ge Aşaması</div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16">
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <Badge variant="default" className="w-fit">
+                  <Mail className="w-3 h-3 mr-1" />
+                  İletişime Geçin
+                </Badge>
+                <h2 className="text-3xl lg:text-5xl font-bold text-balance">Fark yaratmaya hazır mısınız?</h2>
+                <p className="text-xl text-muted-foreground text-pretty">
+                  Moda markası, perakendeci veya sürdürülebilirlik savunucusu olun, daha sürdürülebilir bir gelecek
+                  yaratmak için nasıl birlikte çalışabileceğimizi keşfetmeyi çok isteriz. Tekstil endüstrisini
+                  dönüştürme misyonumuza katılın.
+                </p>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Mail className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <div className="font-semibold">E-posta Gönderin</div>
+                    <div className="text-muted-foreground">hello@rethread.com</div>
+                    <div className="text-xs text-primary">24 saat içinde yanıt</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <Phone className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <div className="font-semibold">Bizi Arayın</div>
+                    <div className="text-muted-foreground">+1 (555) 123-4567</div>
+                    <div className="text-xs text-primary">Pzt-Cum 09:00-18:00 PST</div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <div className="font-semibold">Bizi Ziyaret Edin</div>
+                    <div className="text-muted-foreground">123 Innovation Drive, San Francisco, CA 94107</div>
+                    <div className="text-xs text-primary">Randevu ile turlar mevcut</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <Card className="p-8">
+              <CardContent className="space-y-6">
+                <h3 className="text-2xl font-semibold">Bize mesaj gönderin</h3>
+                <div className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Ad *</label>
+                      <input
+                        type="text"
+                        className="w-full px-3 py-2 border border-input rounded-md bg-background focus:ring-2 focus:ring-primary focus:border-transparent"
+                        placeholder="Ahmet"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Soyad *</label>
+                      <input
+                        type="text"
+                        className="w-full px-3 py-2 border border-input rounded-md bg-background focus:ring-2 focus:ring-primary focus:border-transparent"
+                        placeholder="Yılmaz"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">E-posta *</label>
+                    <input
+                      type="email"
+                      className="w-full px-3 py-2 border border-input rounded-md bg-background focus:ring-2 focus:ring-primary focus:border-transparent"
+                      placeholder="ahmet@ornek.com"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Şirket</label>
+                    <input
+                      type="text"
+                      className="w-full px-3 py-2 border border-input rounded-md bg-background focus:ring-2 focus:ring-primary focus:border-transparent"
+                      placeholder="Şirketiniz"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Sorgulama Türü *</label>
+                    <select
+                      className="w-full px-3 py-2 border border-input rounded-md bg-background focus:ring-2 focus:ring-primary focus:border-transparent"
+                      required
+                    >
+                      <option value="">Sorgulama türünü seçin</option>
+                      <option value="partnership">Ortaklık Fırsatı</option>
+                      <option value="collection">Toplama Programı</option>
+                      <option value="investment">Yatırım İlgisi</option>
+                      <option value="media">Medya Sorgusu</option>
+                      <option value="other">Diğer</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium">Mesaj *</label>
+                    <textarea
+                      className="w-full px-3 py-2 border border-input rounded-md bg-background min-h-[120px] focus:ring-2 focus:ring-primary focus:border-transparent"
+                      placeholder="Sürdürülebilirlik hedefleriniz ve nasıl birlikte çalışabileceğimiz hakkında bize bilgi verin..."
+                      required
+                    />
+                  </div>
+                  <Button
+                    className="w-full"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      alert("Mesajınız için teşekkürler! 24 saat içinde size geri döneceğiz.")
+                    }}
+                  >
+                    Mesaj Gönder
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 text-primary-foreground neon-glow" style={{ backgroundColor: "var(--neon-magenta)" }}>
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center space-y-8">
+          <h2 className="text-3xl lg:text-5xl font-bold text-balance neon-text-glow">Tekstil devrimine katılın</h2>
+          <p className="text-xl opacity-90 text-pretty">
+            Çözümün bir parçası olun. Birlikte moda endüstrisini dönüştürebilir ve gelecek nesiller için sürdürülebilir
+            bir gelecek yaratabiliriz. Her ortaklık fark yaratır.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="group neon-glow"
+              style={{ backgroundColor: "var(--neon-green)", color: "white" }}
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              Bizimle Ortak Olun
+              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="neon-border hover:neon-glow bg-transparent"
+              style={{ borderColor: "white", color: "white" }}
+              onClick={() => document.getElementById("solution")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              Daha Fazla Öğrenin
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border bg-muted/30 py-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div className="space-y-4">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                  <Recycle className="w-4 h-4 text-primary-foreground" />
+                </div>
+                <span className="font-semibold text-xl">ReThread</span>
+              </div>
+              <p className="text-muted-foreground text-sm">
+                Yenilikçi geri dönüşüm teknolojisi ile tekstil atıklarını sürdürülebilir geleceğe dönüştürüyoruz.
+              </p>
+              <div className="flex gap-4 pt-2">
+                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  LinkedIn
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Twitter
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Instagram
+                </a>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h4 className="font-semibold">Şirket</h4>
+              <div className="space-y-2 text-sm">
+                <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Hakkımızda
+                </a>
+                <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Sürecimiz
+                </a>
+                <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Kariyer
+                </a>
+                <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Basın
+                </a>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h4 className="font-semibold">Çözümler</h4>
+              <div className="space-y-2 text-sm">
+                <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Markalar İçin
+                </a>
+                <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Perakendeciler İçin
+                </a>
+                <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Toplama Programları
+                </a>
+                <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Özel Çözümler
+                </a>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h4 className="font-semibold">Kaynaklar</h4>
+              <div className="space-y-2 text-sm">
+                <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Sürdürülebilirlik Raporu
+                </a>
+                <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Vaka Çalışmaları
+                </a>
+                <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Blog
+                </a>
+                <a href="#" className="block text-muted-foreground hover:text-foreground transition-colors">
+                  Destek
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-border pt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+              <p className="text-muted-foreground text-sm text-center">
+                © 2025 ReThread. Tüm hakları saklıdır. Tekstil atıklarını sürdürülebilir geleceğe dönüştürüyoruz.
+              </p>
+              <div className="flex items-center gap-6 text-sm">
+                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Gizlilik Politikası
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Hizmet Şartları
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Çerez Politikası
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}
